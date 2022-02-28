@@ -1,8 +1,8 @@
-package com.ykren.fastdfs.autoconfigure;
+package com.ykrenz.fastdfs.autoconfigure;
 
-import com.ykren.fastdfs.FastDFS;
-import com.ykren.fastdfs.FastDFSClientBuilder;
-import com.ykren.fastdfs.config.FastDFSConfiguration;
+import com.ykrenz.fastdfs.FastDFS;
+import com.ykrenz.fastdfs.FastDFSClientBuilder;
+import com.ykrenz.fastdfs.config.FastDFSConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

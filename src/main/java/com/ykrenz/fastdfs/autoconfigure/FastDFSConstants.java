@@ -1,4 +1,4 @@
-package com.ykren.fastdfs.autoconfigure;
+package com.ykrenz.fastdfs.autoconfigure;
 
 public final class FastDFSConstants {
 

@@ -1,7 +1,7 @@
 # fastdfs-client-spring-boot-starter
 Spring Boot Starter For FastDFS Client
 
-***基于fastdfs-client: https://github.com/yinkren/fastdfs-client***
+***fastdfs-client: https://github.com/ykrenz/fastdfs-client***
 
 ```
 springboot 版本 2.2.5.RELEASE

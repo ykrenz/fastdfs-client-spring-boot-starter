@@ -1,15 +1,13 @@
-package com.ykren.fastdfs.autoconfigure;
+package com.ykrenz.fastdfs.autoconfigure;
 
-import com.ykren.fastdfs.config.ConnectionConfiguration;
-import com.ykren.fastdfs.config.HttpConfiguration;
+import com.ykrenz.fastdfs.config.ConnectionConfiguration;
+import com.ykrenz.fastdfs.config.HttpConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import java.util.List;
 
-import static com.ykren.fastdfs.autoconfigure.FastDFSConstants.PREFIX;
-
-@ConfigurationProperties(PREFIX)
+@ConfigurationProperties(FastDFSConstants.PREFIX)
 public class FastDFSProperties {
 
     /**

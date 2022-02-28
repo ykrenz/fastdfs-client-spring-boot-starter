@@ -1,6 +1,6 @@
-package com.ykren.fastdfs.autoconfigure;
+package com.ykrenz.fastdfs.autoconfigure;
 
-import com.ykren.fastdfs.FastDFS;
+import com.ykrenz.fastdfs.FastDFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
