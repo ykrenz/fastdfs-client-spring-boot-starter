@@ -1,7 +1,7 @@
 package com.ykrenz.fastdfs.autoconfigure;
 
-import com.ykrenz.fastdfs.FastDFS;
-import com.ykrenz.fastdfs.FastDFSClientBuilder;
+import com.ykrenz.fastdfs.FastDfs;
+import com.ykrenz.fastdfs.FastDfsClientBuilder;
 import com.ykrenz.fastdfs.config.FastDFSConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -14,19 +14,19 @@ import org.springframework.util.CollectionUtils;
 
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass(FastDFS.class)
+@ConditionalOnClass(FastDfs.class)
 @ConditionalOnProperty(name = FastDFSConstants.ENABLED, havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties(FastDFSProperties.class)
 public class FastDFSAutoConfiguration {
 
     @ConditionalOnMissingBean
     @Bean
-    public FastDFS fastDFS(FastDFSProperties properties) {
+    public FastDfs fastDfs(FastDFSProperties properties) {
         Assert.isTrue(!CollectionUtils.isEmpty(properties.getTrackerServers()), "FastDFS trackerServers can't be empty.");
         FastDFSConfiguration configuration = new FastDFSConfiguration();
         configuration.setGroupName(properties.getGroupName());
         configuration.setHttp(properties.getHttp());
         configuration.setConnection(properties.getConnection());
-        return new FastDFSClientBuilder().build(properties.getTrackerServers(), configuration);
+        return new FastDfsClientBuilder().build(properties.getTrackerServers(), configuration);
     }
 }
