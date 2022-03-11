@@ -1,6 +1,5 @@
 package com.ykrenz.fastdfs.autoconfigure.endpoint;
 
-import com.ykrenz.fastdfs.FastDfs;
 import com.ykrenz.fastdfs.FastDfsClient;
 import com.ykrenz.fastdfs.TrackerClient;
 import com.ykrenz.fastdfs.model.fdfs.GroupState;
@@ -42,12 +41,17 @@ public class FastDfsEndpoint {
             fastDfsProperties.put("trackerServers", trackerClient.getTrackerServers());
 
             List<GroupState> groupStates = trackerClient.listGroups();
-            Map<GroupState, List<StorageState>> groupStateMap = new HashMap<>(groupStates.size());
+            Map<String, Object> groupMap = new HashMap<>();
             groupStates.forEach(groupState -> {
                 List<StorageState> storageStates = trackerClient.listStorages(groupState.getGroupName());
-                groupStateMap.put(groupState, storageStates);
+                groupMap.put("groupName", groupState.getGroupName());
+                groupMap.put("groupState", groupState);
+                groupMap.put("storageCount", storageStates.size());
+                groupMap.put("storages", storageStates);
             });
-            fastDfsProperties.put("groups", groupStateMap);
+
+            fastDfsProperties.put("groupCount", groupStates.size());
+            fastDfsProperties.put("groups", groupMap);
             fastDfsClientList.add(fastDfsProperties);
         });
 
@@ -56,6 +60,5 @@ public class FastDfsEndpoint {
 
         return result;
     }
-
 
 }
