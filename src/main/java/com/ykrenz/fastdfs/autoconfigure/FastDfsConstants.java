@@ -1,6 +1,6 @@
 package com.ykrenz.fastdfs.autoconfigure;
 
-public final class FastDFSConstants {
+public final class FastDfsConstants {
 
     /**
      * Prefix of FastDFSConstants.
@@ -11,7 +11,12 @@ public final class FastDFSConstants {
      */
     public static final String ENABLED = PREFIX + ".enabled";
 
-    private FastDFSConstants() {
+    /**
+     * Enable FastDFS MONITOR.
+     */
+    public static final String ENABLED_MONITOR = PREFIX + ".monitor.enabled";
+
+    private FastDfsConstants() {
     }
 
 }

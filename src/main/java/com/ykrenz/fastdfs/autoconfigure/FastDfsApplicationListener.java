@@ -8,9 +8,9 @@ import org.springframework.context.event.ContextClosedEvent;
 
 import java.util.Map;
 
-public class FastDFSApplicationListener implements ApplicationListener<ContextClosedEvent> {
+public class FastDfsApplicationListener implements ApplicationListener<ContextClosedEvent> {
 
-    private static final Logger log = LoggerFactory.getLogger(FastDFSApplicationListener.class);
+    private static final Logger log = LoggerFactory.getLogger(FastDfsApplicationListener.class);
 
     @Override
     public void onApplicationEvent(ContextClosedEvent event) {
@@ -19,6 +19,14 @@ public class FastDFSApplicationListener implements ApplicationListener<ContextCl
         fastDfsClientMap.keySet().forEach(beanName -> {
             log.info("shutdown FastDFS Client: {}", beanName);
             fastDfsClientMap.get(beanName).shutdown();
+        });
+
+
+        Map<String, FastDfsMonitorTask> fastDfsMonitorTaskMap = event.getApplicationContext().getBeansOfType(FastDfsMonitorTask.class);
+        log.info("{} FastDfsMonitorTask will be shutdown soon", fastDfsMonitorTaskMap.size());
+        fastDfsMonitorTaskMap.keySet().forEach(beanName -> {
+            log.info("shutdown FastDfsMonitorTask: {}", beanName);
+            fastDfsMonitorTaskMap.get(beanName).shutdown();
         });
     }
 
