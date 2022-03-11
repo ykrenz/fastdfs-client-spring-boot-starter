@@ -18,7 +18,7 @@ public class FastDFSProperties {
     /**
      * 上传到固定分组
      */
-    private String groupName;
+    private String defaultGroup;
 
     @NestedConfigurationProperty
     private ConnectionConfiguration connection = new ConnectionConfiguration();
@@ -34,12 +34,12 @@ public class FastDFSProperties {
         this.trackerServers = trackerServers;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getDefaultGroup() {
+        return defaultGroup;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setDefaultGroup(String defaultGroup) {
+        this.defaultGroup = defaultGroup;
     }
 
     public ConnectionConfiguration getConnection() {

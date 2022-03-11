@@ -24,7 +24,7 @@ public class FastDFSAutoConfiguration {
     public FastDfs fastDfs(FastDFSProperties properties) {
         Assert.isTrue(!CollectionUtils.isEmpty(properties.getTrackerServers()), "FastDFS trackerServers can't be empty.");
         FastDFSConfiguration configuration = new FastDFSConfiguration();
-        configuration.setGroupName(properties.getGroupName());
+        configuration.setDefaultGroup(properties.getDefaultGroup());
         configuration.setHttp(properties.getHttp());
         configuration.setConnection(properties.getConnection());
         return new FastDfsClientBuilder().build(properties.getTrackerServers(), configuration);
