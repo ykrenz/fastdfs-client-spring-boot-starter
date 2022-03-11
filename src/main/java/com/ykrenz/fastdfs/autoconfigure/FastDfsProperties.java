@@ -24,7 +24,6 @@ public class FastDfsProperties {
      */
     private String defaultGroup;
 
-
     /**
      * 连接配置
      */
@@ -37,6 +36,9 @@ public class FastDfsProperties {
     @NestedConfigurationProperty
     private HttpConfiguration http = new HttpConfiguration();
 
+    /**
+     * 监控配置
+     */
     private Monitor monitor = new Monitor();
 
     public boolean isEnabled() {

@@ -1,5 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.ykrenz.fastdfs.autoconfigure.FastDfsAutoConfiguration
-
+com.ykrenz.fastdfs.autoconfigure.FastDfsAutoConfiguration,\
+com.ykrenz.fastdfs.autoconfigure.endpoint.FastDfsEndpointAutoConfiguration
 org.springframework.context.ApplicationListener=\
 com.ykrenz.fastdfs.autoconfigure.FastDfsApplicationListener

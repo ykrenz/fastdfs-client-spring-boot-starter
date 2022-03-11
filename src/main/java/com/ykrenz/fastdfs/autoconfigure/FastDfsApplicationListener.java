@@ -20,14 +20,6 @@ public class FastDfsApplicationListener implements ApplicationListener<ContextCl
             log.info("shutdown FastDFS Client: {}", beanName);
             fastDfsClientMap.get(beanName).shutdown();
         });
-
-
-        Map<String, FastDfsMonitorTask> fastDfsMonitorTaskMap = event.getApplicationContext().getBeansOfType(FastDfsMonitorTask.class);
-        log.info("{} FastDfsMonitorTask will be shutdown soon", fastDfsMonitorTaskMap.size());
-        fastDfsMonitorTaskMap.keySet().forEach(beanName -> {
-            log.info("shutdown FastDfsMonitorTask: {}", beanName);
-            fastDfsMonitorTaskMap.get(beanName).shutdown();
-        });
     }
 
 }
