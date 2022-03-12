@@ -3,6 +3,8 @@ Spring Boot Starter For FastDFS Client
 
 ***fastdfs-client: https://github.com/ykrenz/fastdfs-client***
 
+`springboot-server参考` https://github.com/ykrenz/springboot-file-server
+
 ```
 springboot 版本 2.2.5.RELEASE
 ```

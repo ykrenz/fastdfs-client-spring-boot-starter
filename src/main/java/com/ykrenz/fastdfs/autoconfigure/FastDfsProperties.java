@@ -36,11 +36,6 @@ public class FastDfsProperties {
     @NestedConfigurationProperty
     private HttpConfiguration http = new HttpConfiguration();
 
-    /**
-     * 监控配置
-     */
-    private Monitor monitor = new Monitor();
-
     public boolean isEnabled() {
         return enabled;
     }
@@ -81,65 +76,4 @@ public class FastDfsProperties {
         this.http = http;
     }
 
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
-    }
-
-    static class Monitor {
-        /**
-         * 是否开启监控
-         */
-        private boolean enabled;
-
-        /**
-         * storage磁盘监控  tracker.conf reserved_storage_space
-         */
-        private String reservedStorageSpace = "25%";
-
-        /**
-         * 周期时间
-         */
-        private long periodMillis = 30 * 1000L;
-
-        /**
-         * 延迟执行
-         */
-        private long delayMillis = 0L;
-
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public String getReservedStorageSpace() {
-            return reservedStorageSpace;
-        }
-
-        public void setReservedStorageSpace(String reservedStorageSpace) {
-            this.reservedStorageSpace = reservedStorageSpace;
-        }
-
-        public long getPeriodMillis() {
-            return periodMillis;
-        }
-
-        public void setPeriodMillis(long periodMillis) {
-            this.periodMillis = periodMillis;
-        }
-
-        public long getDelayMillis() {
-            return delayMillis;
-        }
-
-        public void setDelayMillis(long delayMillis) {
-            this.delayMillis = delayMillis;
-        }
-    }
 }
