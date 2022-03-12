@@ -11,11 +11,6 @@ public final class FastDfsConstants {
      */
     public static final String ENABLED = PREFIX + ".enabled";
 
-    /**
-     * Enable FastDFS MONITOR.
-     */
-    public static final String ENABLED_MONITOR = PREFIX + ".monitor.enabled";
-
     private FastDfsConstants() {
     }
 

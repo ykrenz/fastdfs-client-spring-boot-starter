@@ -36,24 +36,4 @@ public class FastDfsAutoConfiguration {
         LOGGER.info("fastDfs Client init...{}", properties.getTrackerServers());
         return fastDfs;
     }
-
-//
-//    @ConditionalOnProperty(name = FastDfsConstants.ENABLED_MONITOR, havingValue = "true")
-//    @ConditionalOnBean(FastDfs.class)
-//    @ConditionalOnMissingBean
-//    @Bean
-//    public FastDfsMonitor fastDfsMonitor(FastDfsProperties properties, FastDfs fastDfs) {
-//        return new StorageMonitor(fastDfs.getTrackerClient(), properties.getMonitor().getReservedStorageSpace());
-//    }
-
-//    @ConditionalOnBean(FastDfsMonitor.class)
-//    @Bean
-//    @ConditionalOnMissingBean
-//    public FastDfsMonitorTask fastDfsMonitorTask(FastDfsProperties properties, FastDfsMonitor fastDfsMonitor) {
-//        FastDfsMonitorTask fastDfsMonitorTask = new FastDfsMonitorTask();
-//        fastDfsMonitorTask.schedule(fastDfsMonitor, properties.getMonitor().getDelayMillis(),
-//                properties.getMonitor().getPeriodMillis(), TimeUnit.MILLISECONDS);
-//        LOGGER.info("fastDfs Monitor Task start...{}", fastDfsMonitorTask.getClass().getSimpleName());
-//        return fastDfsMonitorTask;
-//    }
 }

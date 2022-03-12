@@ -20,6 +20,9 @@ public class FastDfsEndpoint {
     @Autowired
     private ApplicationContext applicationContext;
 
+    public static final String UP = "UP";
+    public static final String DOWN = "DOWN";
+
     @ReadOperation
     public Map<String, Object> invoke() {
         Map<String, Object> result = new HashMap<>();
@@ -36,22 +39,25 @@ public class FastDfsEndpoint {
             FastDfsClient client = fastDfsClientMap.get(beanName);
             fastDfsProperties.put("beanName", beanName);
             fastDfsProperties.put("clientConfiguration", client.getFastDfsConfiguration());
-            fastDfsProperties.put("connectionConfig", client.getConnectionManager().getPool().getConnection());
             TrackerClient trackerClient = client.getTrackerClient();
             fastDfsProperties.put("trackerServers", trackerClient.getTrackerServers());
 
-            List<GroupState> groupStates = trackerClient.listGroups();
-            Map<String, Object> groupMap = new HashMap<>();
-            groupStates.forEach(groupState -> {
-                List<StorageState> storageStates = trackerClient.listStorages(groupState.getGroupName());
-                groupMap.put("groupName", groupState.getGroupName());
-                groupMap.put("groupState", groupState);
-                groupMap.put("storageCount", storageStates.size());
-                groupMap.put("storages", storageStates);
-            });
+            try {
+                List<GroupState> groupStates = trackerClient.listGroups();
+                List<Map<String, Object>> groups = new ArrayList<>(groupStates.size());
+                groupStates.forEach(groupState -> {
+                    List<StorageState> storageStates = trackerClient.listStorages(groupState.getGroupName());
+                    Map<String, Object> groupMap = new HashMap<>();
+                    groupMap.put("group", groupState);
+                    groupMap.put("storages", storageStates);
+                    groups.add(groupMap);
+                });
+                fastDfsProperties.put("groups", groups);
+                fastDfsProperties.put("status", UP);
+            } catch (Exception e) {
+                fastDfsProperties.put("status", DOWN);
+            }
 
-            fastDfsProperties.put("groupCount", groupStates.size());
-            fastDfsProperties.put("groups", groupMap);
             fastDfsClientList.add(fastDfsProperties);
         });
 
@@ -60,5 +66,6 @@ public class FastDfsEndpoint {
 
         return result;
     }
+
 
 }
