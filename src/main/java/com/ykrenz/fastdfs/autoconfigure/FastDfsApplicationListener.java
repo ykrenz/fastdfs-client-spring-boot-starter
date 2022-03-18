@@ -15,9 +15,9 @@ public class FastDfsApplicationListener implements ApplicationListener<ContextCl
     @Override
     public void onApplicationEvent(ContextClosedEvent event) {
         Map<String, FastDfs> fastDfsClientMap = event.getApplicationContext().getBeansOfType(FastDfs.class);
-        log.info("{} FastDFSClients will be shutdown soon", fastDfsClientMap.size());
+        log.info("{} FastDfsClients will be shutdown soon", fastDfsClientMap.size());
         fastDfsClientMap.keySet().forEach(beanName -> {
-            log.info("shutdown FastDFS Client: {}", beanName);
+            log.info("shutdown FastDfs Client: {}", beanName);
             fastDfsClientMap.get(beanName).shutdown();
         });
     }

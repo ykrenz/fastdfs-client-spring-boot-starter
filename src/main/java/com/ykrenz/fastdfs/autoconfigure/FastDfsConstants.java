@@ -3,11 +3,11 @@ package com.ykrenz.fastdfs.autoconfigure;
 public final class FastDfsConstants {
 
     /**
-     * Prefix of FastDFSConstants.
+     * Prefix of FastDfsConstants.
      */
     public static final String PREFIX = "fastdfs";
     /**
-     * Enable FastDFS.
+     * Enable FastDfs.
      */
     public static final String ENABLED = PREFIX + ".enabled";
 
