@@ -1,5 +1,5 @@
 # fastdfs-client-spring-boot-starter
-Spring Boot Starter For FastDFS Client
+Spring Boot Starter For FastDfs Client
 
 ***fastdfs-client: https://github.com/ykrenz/fastdfs-client***
 
@@ -8,17 +8,18 @@ Spring Boot Starter For FastDFS Client
 ```
 springboot 版本 2.2.5.RELEASE
 ```
-健康检查端点: /actuator/fastdfs
 
-```yml
-management:
-  endpoints:
-    web:
-      exposure:
-        include: 'fastdfs'
+## 依赖：
+
+```xml
+    <dependency>
+        <groupId>io.github.ykrenz</groupId>
+        <artifactId>fastdfs-client-spring-boot-starter</artifactId>
+        <version>1.0.0</version>
+    </dependency>
 ```
 
-yml示例：
+yml配置示例：
 
 ```yml
 #fastdfs 配置
@@ -26,13 +27,13 @@ fastdfs:
   enabled: true
   # tracker服务
   tracker-servers: "192.168.24.130:22122"
-  # 固定分组 不设置则为fastdfs服务返回的group
-  default-group: "group1"
+  # 固定分组
+  #  default-group: "group1"
   http:
-    # web访问地址
-    web-server-url: "http://192.168.24.130:8888"
-    # web访问地址是否包含group
-    web-server-url-has-group: true
+    # web地址
+    web-servers: "http://192.168.24.130:8888"
+    # 访问地址是否包含group
+    url-have-group: true
     # 开启防盗链
     http-anti-steal-token: true
     # 防盗链密钥
@@ -53,3 +54,23 @@ fastdfs:
       soft-min-evictable-idle-time-millis: 60000
       test-on-borrow: true
 ```
+
+健康检查端点配置(/actuator/fastdfs):
+```yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'fastdfs'
+```
+举例：
+
+```java
+    @Autowired
+    private FastDfs fastDfs;
+
+    public void uploadFile(File file){
+        StorePath storePath =  fastDfs.uploadFile(file);
+    }
+```
+**使用具体可参考https://github.com/ykrenz/fastdfs-client**
