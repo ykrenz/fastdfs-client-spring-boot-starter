@@ -15,7 +15,7 @@ springboot 版本 2.2.5.RELEASE
     <dependency>
         <groupId>io.github.ykrenz</groupId>
         <artifactId>fastdfs-client-spring-boot-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
 ```
 
