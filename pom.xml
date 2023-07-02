@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.ykrenz</groupId>
     <artifactId>fastdfs-client-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>fastdfs-client-spring-boot-starter</name>
@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
-        <fastdfs-client.version>1.0.0</fastdfs-client.version>
+        <fastdfs-client.version>1.1.0</fastdfs-client.version>
     </properties>
 
     <licenses>
@@ -45,7 +45,6 @@
     </scm>
 
     <dependencies>
-
         <!--fastdfs-client-->
         <dependency>
             <groupId>io.github.ykrenz</groupId>

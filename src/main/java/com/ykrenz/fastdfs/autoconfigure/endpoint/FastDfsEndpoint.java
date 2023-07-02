@@ -38,7 +38,7 @@ public class FastDfsEndpoint {
             Map<String, Object> fastDfsProperties = new HashMap<>();
             FastDfsClient client = fastDfsClientMap.get(beanName);
             fastDfsProperties.put("beanName", beanName);
-            fastDfsProperties.put("clientConfiguration", client.getFastDfsConfiguration());
+            fastDfsProperties.put("configuration", client.getConfiguration());
             TrackerClient trackerClient = client.getTrackerClient();
             fastDfsProperties.put("trackerServers", trackerClient.getTrackerServers());
 
